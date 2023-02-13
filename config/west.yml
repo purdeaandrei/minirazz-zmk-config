@@ -1,0 +1,11 @@
+manifest:
+  remotes:
+    - name: purdeaandrei
+      url-base: https://github.com/purdeaandrei
+  projects:
+    - name: zmk
+      remote: purdeaandrei
+      revision: minirazz_history_may_change
+      import: app/west.yml
+  self:
+    path: config

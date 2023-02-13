@@ -1,0 +1,38 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+	behaviors {
+		sh_slck_is_nlck: sh_slck_is_nlck {
+			label = "SH_SLCK_IS_NLCK";
+			compatible = "zmk,behavior-mod-morph";
+			#binding-cells = <0>;
+			bindings = <&kp SCROLLLOCK>, <&kp KP_NUMLOCK>;
+			mods = <(MOD_LSFT|MOD_RSFT)>;
+		};
+	};
+	keymap {
+		compatible = "zmk,keymap";
+
+		default_layer {
+			bindings = <
+&kp ESC   &kp F1    &kp F2   &kp F3    &kp F4    &kp F5    &kp F6   &kp F7    &kp F8    &kp F9   &kp F10   &kp F11   &kp F12  &kp PRINTSCREEN   &sh_slck_is_nlck &kp PAUSE_BREAK
+&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC &kp BSPC    &kp INSERT &kp HOME &kp PAGE_UP
+&kp TAB &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp BACKSLASH  &kp DELETE &kp END &kp PAGE_DOWN
+&kp CAPSLOCK &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI      &kp SINGLE_QUOTE &kp NON_US_HASH &kp RETURN
+&kp LEFT_SHIFT &kp NON_US_BACKSLASH &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH   &kp RIGHT_SHIFT &kp RIGHT_SHIFT                  &kp UP
+&kp LEFT_CONTROL &kp LEFT_WIN &kp LEFT_ALT                   &kp SPACE                        &kp RIGHT_ALT &kp RIGHT_WIN &kp K_APPLICATION &kp RIGHT_CONTROL                         &kp LEFT &kp DOWN &kp RIGHT
+			>;
+		};
+		numlock_layer {
+			bindings = <
+&trans   &trans    &trans   &trans    &trans    &trans    &trans   &trans    &trans    &trans   &trans   &trans   &trans                       &trans &trans &trans
+&trans &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_N7 &kp KP_N8 &kp KP_N9 &trans &kp KP_MINUS &kp KP_PLUS &trans &trans             &trans &trans &trans
+&trans &trans    &trans   &trans   &trans   &trans  &trans   &kp KP_N4  &kp KP_N5  &kp KP_N6     &trans &trans &trans &trans                   &trans &trans &trans
+&trans &trans      &trans   &trans   &trans   &trans   &trans    &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp KP_MULTIPLY &trans &trans &kp KP_ENTER
+&trans &trans &trans   &trans   &trans   &trans   &trans    &trans  &kp KP_N0    &trans &kp KP_DOT   &kp KP_DIVIDE   &trans &trans                    &trans
+&trans &trans &trans                                 &trans                             &trans &trans &trans &trans                            &trans &trans &trans
+			>;
+		};
+	};
+};
